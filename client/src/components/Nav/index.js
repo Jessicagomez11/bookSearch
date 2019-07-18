@@ -7,17 +7,13 @@ function Nav() {
     
 <ul className="nav">
   <li className="nav-item">
-    <a className="nav-link active" href="/">Active</a>
+    <a className="nav-link" href="/">My Library</a>
   </li>
   <li className="nav-item">
-    <a className="nav-link" href="/">Link</a>
+    <a className="nav-link" href="/">Search</a>
   </li>
-  <li className="nav-item">
-    <a className="nav-link" href="/">Link</a>
-  </li>
-  <li className="nav-item">
-    <a className="nav-link disabled" href="/" tabindex="-1" aria-disabled="true">Disabled</a>
-  </li>
+
+  
 </ul>
   );
 }

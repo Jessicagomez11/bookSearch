@@ -13,11 +13,17 @@ class App extends Component {
       <Nav/>
       <Jumbotron>
         <br/>
-          <InputBox>
-            <Button 
-              type="submit"
-              className="btn btn-outline-secondary"
-              id="bookSearch"/>
+          <InputBox
+              type="text"
+              className="form-control"
+              placeholder="Book Title"
+              label="book-search-input" 
+              describedby="bookSearch">
+                  <Button 
+                    type="search"
+                    className="btn btn-outline-secondary"
+                    id="bookSearch"
+                    btnText="Search!"/>
           </InputBox>
       </Jumbotron>
       </div>
