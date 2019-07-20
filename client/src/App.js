@@ -69,12 +69,20 @@ class App extends Component {
         </Jumbotron>
         <Container >
           <h1>Results: </h1>
-            {/* <Card>
+          <div className="card-columns">
+          {this.state.books.map(book =>{
 
-            </Card> */}
-            {/* <BookList books={this.state.books}/> */}
+            return(<Card 
+              books={book}
+              url= {book.volumeInfo.imageLinks.thumbnail}
+              title= {book.volumeInfo.title}
+              description= {book.volumeInfo.description}
 
-            
+            ></Card>
+            )
+          })}
+
+            </div>
         </Container>
       </div>
     );
