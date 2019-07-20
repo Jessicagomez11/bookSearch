@@ -6,6 +6,8 @@ import Button from "./components/Button"
 import API from "./utils/API"
 
 import "./App.css";
+import Container from "./components/Container";
+import Card from "./components/Card"
 
 
 
@@ -19,19 +21,8 @@ class App extends Component {
   }
  
 
-  // handleInputChange = event => {
-  //   console.log(event)
-  
-  //   const { name, value } = event.target;
-  
-  //   this.setState({
-  //     [name]: value
-  //   });
-  
-  // };
   handleInputChange = event => {
-    // Destructure the name and value properties off of event.target
-    // Update the appropriate state
+  
     const { name, value } = event.target;
     this.setState({
       [name]: value
@@ -75,6 +66,12 @@ class App extends Component {
               btnText="Search" />
           </InputBox>
         </Jumbotron>
+        <Container >
+          <h1>Results: </h1>
+            <Card>
+
+            </Card>
+        </Container>
       </div>
     );
   }
