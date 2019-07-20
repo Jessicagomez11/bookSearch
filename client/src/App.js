@@ -8,6 +8,7 @@ import API from "./utils/API"
 import "./App.css";
 import Container from "./components/Container";
 import Card from "./components/Card"
+import BookList from "./components/BookList"
 
 
 
@@ -68,9 +69,12 @@ class App extends Component {
         </Jumbotron>
         <Container >
           <h1>Results: </h1>
-            <Card>
+            {/* <Card>
 
-            </Card>
+            </Card> */}
+            {/* <BookList books={this.state.books}/> */}
+
+            
         </Container>
       </div>
     );
