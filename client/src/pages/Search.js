@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import Nav from "../components/Nav"
+// import Nav from "../components/Nav"
 import Jumbotron from "../components/Jumbotron"
 import InputBox from "../components/InputBox"
-import Button from "../components/Button"
 import API from "../utils/API"
+import Button from "../components/Button"
+import SaveButton from "../components/SaveButton"
 
 // import "./App.css";
 import Container from "../components/Container";
@@ -38,7 +39,7 @@ class Search extends Component {
       .then(res => {
         console.log(res.data.items)
         this.setState({ books: res.data.items})
-        console.log("imglink", this.state.books.volumeInfo == undefined)
+        
       })
       
       this.setState({
@@ -49,12 +50,19 @@ class Search extends Component {
     
   }
 
+  saveBook = book =>{
+    API.saveBook( book )
+    .then(res => { 
+      console.log(res)
+    })
+  }
+
 
 
   render() {
     return (
       <div className="container-fluid">
-        <Nav />
+      
         <Jumbotron>
           <br />
           <InputBox
@@ -82,12 +90,23 @@ class Search extends Component {
             return(<Card 
               books={book}
               url= {book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : ''}
-             
               title= {book.volumeInfo.title}
               description= {book.volumeInfo.description}
-              author= {book.volumeInfo}
+              author= {book.volumeInfo.authors[0]}
+              key={book.id}
+              >
+              <SaveButton  onClick={() => this.saveBook(
+                { 
+                  title: book.volumeInfo.title,
+                  description: book.volumeInfo.description,
+                  image: book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : ''
+                  // author: 
 
-            ></Card>
+              }
+              )}/>
+              
+
+            </Card>
             )
           })}
 
