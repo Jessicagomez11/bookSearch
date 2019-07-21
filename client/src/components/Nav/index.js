@@ -1,5 +1,6 @@
 
 import React from "react";
+import { Link } from "react-router-dom";
 
 
 function Nav() {
@@ -7,10 +8,17 @@ function Nav() {
     
 <ul className="nav">
   <li className="nav-item">
-    <a className="nav-link" href="/">My Library</a>
+    <Link to="/" className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}>
+         Search
+    </Link>
   </li>
   <li className="nav-item">
-    <a className="nav-link" href="/">Search</a>
+  <Link
+          to="/books"
+          className={window.location.pathname === "/books" ? "nav-link active" : "nav-link"}
+        >
+         Bookshelf
+        </Link>
   </li>
 
   

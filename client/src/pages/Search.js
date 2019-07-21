@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-// import Nav from "../components/Nav"
+// import { Link } from "react-router-dom";
 import Jumbotron from "../components/Jumbotron"
 import InputBox from "../components/InputBox"
 import API from "../utils/API"
 import Button from "../components/Button"
 import SaveButton from "../components/SaveButton"
-
+// import Nav from "../components/Nav"
 // import "./App.css";
 import Container from "../components/Container";
 import Card from "../components/Card"
@@ -102,7 +102,7 @@ class Search extends Component {
                   image: book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : ''
                   // author: 
 
-              }
+                }
               )}/>
               
 
