@@ -21,39 +21,39 @@ class Search extends Component {
     books: [],
     titleSearched: ""
   }
- 
+
 
   handleInputChange = event => {
-  
+
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
-  
+
   };
 
   handleFormSubmit = event => {
-    
+
     event.preventDefault()
     API.searchBook(this.state.titleSearched)
       .then(res => {
         console.log(res.data.items)
-        this.setState({ books: res.data.items})
+        this.setState({ books: res.data.items })
       })
       .catch(err => console.log(err));
 
-      this.setState({
-        titleSearched: ''
-      })
+    this.setState({
+      titleSearched: ''
+    })
 
-    
+
   }
 
-   saveBook = book =>{
-    API.saveBook( book )
-    .then(res => { 
-      console.log(res)
-    })
+  saveBook = book => {
+    API.saveBook(book)
+      .then(res => {
+        console.log(res)
+      })
   }
 
 
@@ -61,20 +61,23 @@ class Search extends Component {
   render() {
     return (
       <div className="container-fluid">
-      
-        <Jumbotron>
+
+        <Jumbotron
+          message="Search for a title or author!"
+          title="Book Search"
+        >
           <br />
           <InputBox
             name="titleSearched"
             value={this.state.titleSearched}
             label="book-search-input"
             onChange={this.handleInputChange}
-           >
-            
-              
-            
+          >
+
+
+
             <Button
-              onClick = { this.handleFormSubmit}
+              onClick={this.handleFormSubmit}
               type="search"
               className="btn btn-outline-secondary"
               id="bookSearch"
@@ -84,32 +87,32 @@ class Search extends Component {
         <Container >
           <h1>Results: </h1>
           <div className="card-columns">
-          {this.state.books.map(book =>{
+            {this.state.books.map(book => {
 
-            return(<Card 
-              books={book}
-              url= {book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : ''}
-              title= {book.volumeInfo.title}
-              description= {book.volumeInfo.description}
-              author= {book.volumeInfo.authors[0]}
-              key={book.id}
+              return (<Card
+                books={book}
+                url={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : ''}
+                title={book.volumeInfo.title}
+                description={book.volumeInfo.description}
+                author={book.volumeInfo.authors[0]}
+                key={book.id}
               >
-              <SaveButton  onClick={() => this.saveBook(
-                { 
-                  title: book.volumeInfo.title,
-                  description: book.volumeInfo.description,
-                  image: book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : ''
-                  // author: 
+                <SaveButton onClick={() => this.saveBook(
+                  {
+                    title: book.volumeInfo.title,
+                    description: book.volumeInfo.description,
+                    image: book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : ''
+                    // author: 
 
-                }
-              )}/>
-              
+                  }
+                )} />
 
-            </Card>
-            )
-          })}
 
-            </div>
+              </Card>
+              )
+            })}
+
+          </div>
         </Container>
       </div>
     );
