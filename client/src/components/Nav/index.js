@@ -8,16 +8,19 @@ function Nav() {
     
 <ul className="nav">
   <li className="nav-item">
-    <Link to="/" className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}>
-         Search
-    </Link>
+        <Link
+          to="/bookshelf"
+          className={window.location.pathname === "/about" ? "nav-link active" : "nav-link"}
+        >
+         My Bookshelf
+        </Link>
   </li>
   <li className="nav-item">
   <Link
-          to="/books"
-          className={window.location.pathname === "/books" ? "nav-link active" : "nav-link"}
+          to="/"
+          className={window.location.pathname === "/about" ? "nav-link active" : "nav-link"}
         >
-         Bookshelf
+        Search
         </Link>
   </li>
 

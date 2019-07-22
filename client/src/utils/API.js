@@ -7,8 +7,11 @@ export default {
   searchBook: function(query) {
     return axios.get(`${BASEURL} ${query}`);
   }, 
-  saveBook: function(data){
-    return axios.post('/API/books', data)
+  saveBook: function(bookData) {
+    return axios.post("/api/books", bookData);
+  },
+  getBook: function(id) {
+    return axios.get("/api/books/");
   }
 };
 

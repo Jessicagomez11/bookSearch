@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import Nav from "../components/Nav"
+// import { Link } from "react-router-dom";
+// import Nav from "../components/Nav"
 import Jumbotron from "../components/Jumbotron"
 import  Container from "../components/Container"
 import API from "../utils/API"
@@ -12,7 +12,7 @@ class Bookshelf extends Component{
 
 
     componentDidMount() {
-        API.getBook(this.props.match.params.id)
+        API.getBook(this.props.match)
           .then(res => console.log(res)
             //  this.setState({ book: res.data. })
              )

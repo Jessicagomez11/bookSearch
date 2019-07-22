@@ -39,18 +39,17 @@ class Search extends Component {
       .then(res => {
         console.log(res.data.items)
         this.setState({ books: res.data.items})
-        
       })
-      
+      .catch(err => console.log(err));
+
       this.setState({
         titleSearched: ''
-
       })
 
     
   }
 
-  saveBook = book =>{
+   saveBook = book =>{
     API.saveBook( book )
     .then(res => { 
       console.log(res)
